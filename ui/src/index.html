@@ -1,0 +1,38 @@
+<!-- <!DOCTYPE html> -->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mersenne Prime Blocks</title>
+    <link rel="stylesheet" href="./global.css">       
+  </head>
+  <body>
+    <div class="layout">
+      <div class="header">
+        <span class="logo">Mersenne prime blocks</span>
+        <div class="network">
+          <span class="block_number" id="blockNumber" title="Most recent block number"></span>          
+          <span class="address" id="address" title="Your wallet address">Not connected.</span>
+        </div>
+      </div>
+      <div class="content">    
+        <div class="block_list" id="blockList"></div>          
+      </div>
+      </div>
+      <div class="footer">
+        <p>Celebrating the longevity of blockchain technology with rare collectibles inspiered by a beautiful class of prime numbers called <span style="color:#DA8B8B">M</span><span style="color:#DAC68B">e</span><span style="color:#B3DA8B">r</span><span style="color:#8BDA9F">s</span><span style="color:#8BDADA">e</span><span style="color:#8B9FDA">n</span><span style="color:#B28BDA">n</span><span style="color:#DA8BC6">e</span> primes.</span>
+        <p>With special thanks to Binance, and Gitcoin.
+        Icons are curtosy of FlatIcon.</p>
+      </div>
+    </div>
+    <div class="modal">
+      <div class="tx_status" id="txStatus">Initiating tx</div>
+      <a href="https://www.google.com" target="_blank" class="tx_link" id="txLink">goog</a>
+    </div>
+    <script src="../node_modules/web3/dist/web3.min.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
