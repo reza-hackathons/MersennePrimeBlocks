@@ -24,6 +24,7 @@ The cards have got the attributes:
 
 ## Demo
 [Live demo](https://siasky.net/_A0KyWspY3dK9E-QiCM4S-v1uSJZ22en7cvvb6Vbi4hG5g/)
+Video:  
 <p align="center">
 
 [![Watch the demo](https://img.youtube.com/vi/ap9jBFzb6nE/maxresdefault.jpg)](https://www.youtube.com/watch?v=ap9jBFzb6nE)
