@@ -100,7 +100,8 @@ const DApp = {
 
     // Hide spinner after loading and rendering data from smart contract
     try {
-      const block_time = 5 // Binance smart chain 
+      const now = Date.now()
+      const block_time = 3 // Binance smart chain testnet
       const blocks_per_hour = 3600 / block_time
       const blocks_per_day = 3600 * 24 / block_time
       const block_number = await DApp.web3.eth.getBlockNumber()
@@ -117,9 +118,11 @@ const DApp = {
         if(prime.isClaimed == false) {
           claim_action = `<span class="button-dark button" id="claimButton" data-pi="${i}">Claim</span>`
           if(exponent > block_number) {          
-            const days_to_claim = parseInt((exponent - block_number) / blocks_per_day)
-            const hours_to_claim = parseInt(((exponent - block_number) % blocks_per_day) / blocks_per_hour)
-            claim_action = `<span class="claim_message">Available to claim in<br/><b><i>${days_to_claim.toLocaleString()}</i></b> days and <b><i>${hours_to_claim}</i></b> hours.</span>`
+            const msecs_claim = now + (exponent - block_number) * block_time * 1000 
+            const claim_date = (new Date(msecs_claim)).toLocaleString(
+              undefined,
+              {dateStyle: "medium", timeStyle: "short"})
+            claim_action = `<span class="claim_message">Available to claim at <br/><b><i>${claim_date}</i></b></span>`
           }
         }
         let discoverers = prime.discoveredBy.replace(/,/g, ",<br/>")
@@ -148,8 +151,13 @@ const DApp = {
           </div>`)
         $("#blockList").append(block)
       }
+      $(".modal").css({display: "none"})
     }
     catch(e) {
+      $("#txStatus").text(`Load failed, please check console.`)
+      setTimeout(function() {
+        $(".modal").css({display: "none"})
+      }, 4000)
       console.log(e)
     }
   },
@@ -167,7 +175,7 @@ $(document).on("click", ".button", async function() {
     $(".modal").css({display: "grid"})
     $("#txStatus").text(`Initiating claim...`)
     $("#txLink").prop("href", `https://testnet.bscscan.com/tx/${hash}`)
-    $("#txLink").text(`${hash.substring(0, 16)}...`)
+    $("#txLink").text(`Tx: ${hash.substring(0, 16)}...`)
   })  
   .on('error', function(error){ 
     $("#txStatus").text(`Failed to claim.`)

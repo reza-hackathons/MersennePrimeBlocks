@@ -24,7 +24,7 @@ a {
   text-decoration: none;
 }
 
-a[target='_blank']::after {content: '\29C9';}
+/*a[target='_blank']::after {content: '\29C9';}*/
 
 p {
   text-indent: 4ch;
@@ -215,8 +215,14 @@ p {
   border-radius: 0.25em;  
   padding: 1em;
   display: grid;
-  grid-template-columns: repeat(2, 384px);
+  grid-template-columns: repeat(3, 256px);
   justify-content: space-between;
+}
+
+.attribution {
+  display: grid;
+  align-content: end;  
+  font-size: small;
 }
 
 .modal {
@@ -232,7 +238,7 @@ p {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  display: none;
+  display: grid;
   justify-content: left;
   align-items: center;
 }
