@@ -52,6 +52,7 @@ const DApp = {
     // No web3 provider
     else {
       $("#address").text("Not connected.")
+      $("#txStatus").text(`No web3 provider detected.`)
       console.error('No web3 provider detected');
       return;
     }
@@ -68,20 +69,24 @@ const DApp = {
   },
 
   initContract: async function() {
-    let networkId = await DApp.web3.eth.net.getId();
-    // console.log('networkId', networkId);
-
-    let deployedNetwork = 97 // bsc testnet
-    // console.log(deployedNetwork);
-    if (!deployedNetwork) {
-      console.error('No contract deployed on the network that you are connected. Please switch networks.');
-      return;
+    try {
+      const currentNetworkId = await DApp.web3.eth.net.getId();
+      const BSCNetwork = 97 // bsc testnet
+      if(currentNetworkId != BSCNetwork) {
+        $("#txStatus").text(`Please switch to Binance smart chain testnet and refresh.`)
+        console.log(`Please switch to Binance smart chain testnet and refresh.`)
+        return
+      }
+    
+      DApp.contracts.MPBContract = new DApp.web3.eth.Contract(
+        ContractABI,
+        "0x802eE77358fF4dcC993D9D193d8DD511411362d1"
+      );
     }
-    // console.log('deployedNetwork', deployedNetwork);
-    DApp.contracts.MPBContract = new DApp.web3.eth.Contract(
-      ContractABI,
-      "0x802eE77358fF4dcC993D9D193d8DD511411362d1"
-    );
+    catch(e){
+      $("#txStatus").text(`Connection failed, please check console.`)
+      console.log(e);
+    }
 
     return DApp.render();
   },
@@ -154,10 +159,7 @@ const DApp = {
       $(".modal").css({display: "none"})
     }
     catch(e) {
-      $("#txStatus").text(`Load failed, please check console.`)
-      setTimeout(function() {
-        $(".modal").css({display: "none"})
-      }, 4000)
+      $("#txStatus").text(`Load failed, please check console.`)      
       console.log(e)
     }
   },

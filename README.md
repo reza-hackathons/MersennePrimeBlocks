@@ -22,7 +22,7 @@ The cards have got the following attributes:
   `yarn build` for prod or `yarn dev` for local testing  
 
 ## Demo
-[Live demo](https://siasky.net/_A0KyWspY3dK9E-QiCM4S-v1uSJZ22en7cvvb6Vbi4hG5g/)  
+[Live demo](https://siasky.net/_A2Njfe5MzoqI0zA-WG3LJQD7MbzIYpghcqAZYIaSjN3aQ/)  
 
 Video:  
 <p align="center">
