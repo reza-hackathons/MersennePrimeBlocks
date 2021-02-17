@@ -14,7 +14,7 @@ The cards have got the following attributes:
 - The year the number is discovered
 
 ## Build  
-- Contracts
+- Contracts  
   `cd contracts`  
   `npx truffle migrate --network testnet`  
 - UI  
@@ -22,7 +22,7 @@ The cards have got the following attributes:
   `yarn build` for prod or `yarn dev` for local testing  
 
 ## Demo
-[Live demo](https://siasky.net/_A2Njfe5MzoqI0zA-WG3LJQD7MbzIYpghcqAZYIaSjN3aQ/)  
+[Live demo](https://siasky.net/_A3r0lu1GEAQCP63zMKeroeFYR5ur2Yl0eJ6i85AlI7jfQ/)  
 
 Video:  
 <p align="center">
